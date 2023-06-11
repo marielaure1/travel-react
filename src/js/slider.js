@@ -13,7 +13,6 @@ let nbSlide = 6
 let translate = 100/nbSlide  //pourcentage de chaque slide pour le transform translate
 let time = 10000
 var intervalId  // Id de l'intervalle en cours
-let slideActive = 0
 
 
 function activeClass(){
@@ -36,7 +35,7 @@ function carousel() {
     // Animation slider
     intervalId = setInterval(() => {
         // position par rapport a au slide selon si c'est la direction
-        if(direction == 1){
+        if(direction === 1){
             slider.style.transform = `translate(${translate}%)`
 
         } else{

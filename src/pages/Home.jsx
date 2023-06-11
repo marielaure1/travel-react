@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect} from "react"
 import {Link} from "react-router-dom"
 import $ from "jquery";
 // import {IonIcon} from "react-ion-icon";
 
 export default function Home() {
-    const [iconMenuActive, setIconMenuActive] = useState()
 
     useEffect(() => {
 
@@ -20,7 +19,6 @@ export default function Home() {
             let translate = 100/nbSlide  //pourcentage de chaque slide pour le transform translate
             let time = 10000
             var intervalId  // Id de l'intervalle en cours
-            let slideActive = 0
             
             
             function activeClass(){
@@ -43,7 +41,7 @@ export default function Home() {
                 // Animation slider
                 intervalId = setInterval(() => {
                     // position par rapport a au slide selon si c'est la direction
-                    if(direction == 1){
+                    if(direction === 1){
                         slider.style.transform = `translate(${translate}%)`
             
                     } else{

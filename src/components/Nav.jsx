@@ -1,33 +1,28 @@
 import React, {useEffect, useState} from "react"
 import {Link, useLocation} from "react-router-dom"
-import $ from "jquery";
-// import {IonIcon} from "react-ion-icon";
 
 export default function Nav(){
     const [activePage, setActivePage] = useState("")
+    const [menuActive, setMenuActive] = useState("")
     const location = useLocation()
 
     useEffect(() => {
       setActivePage(location.pathname)
-
-      
-      $(".icon-menu div").click(() => {
-        $(".icon-menu").toggleClass("active")
-        $(".menu-content").toggleClass("active")
     })
 
-      console.log(location);
-    })
+    const toggleMenu = () => {
+        setMenuActive("active")
+    }
     
     return (
         <nav>
             <div>
                 <h1>Travel</h1>
                 <div className="menu">
-                    <div className="icon-menu mobile">
-                        <div></div>
+                    <div className={"icon-menu mobile " + menuActive}>
+                        <div onClick={toggleMenu}></div>
                     </div>
-                    <div className="menu-content">
+                    <div className={"menu-content " + menuActive}>
                         <ul>
                             <li className={activePage === "/" ? "active" : ""}><Link to="/">Home</Link></li>
                             <li className={activePage === "/destinations" ? "active" : ""}><Link to="/destinations">Destinations</Link></li>
